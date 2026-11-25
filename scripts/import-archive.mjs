@@ -18,13 +18,18 @@ let existing = 0;
 
 try {
   store.db.exec('BEGIN IMMEDIATE');
-  if (bundle.resume && !store.setting('resume')) {
-    const { title, description, sourceLabel } = bundle.resume;
-    store.setSetting('resume', {
-      title: text(title, '续学标题', 140),
-      description: text(description, '续学说明', 900),
-      sourceLabel: text(sourceLabel, '续学来源', 1000),
-    });
+  if (bundle.resume) {
+    const { title, description, sourceLabel, reading, tasks } = bundle.resume;
+    const previous = store.setting('resume');
+    if (!previous || (previous.title === title && !previous.reading && reading)) {
+      store.setSetting('resume', {
+        title: text(title, '续学标题', 140),
+        description: text(description, '续学说明', 900),
+        sourceLabel: text(sourceLabel, '续学来源', 1000),
+        reading: text(reading, '阅读材料', 6000),
+        tasks: Array.isArray(tasks) ? tasks.slice(0, 6).map((task) => text(task, '阅读问题', 1200)).filter(Boolean) : undefined,
+      });
+    }
   }
   for (const entry of bundle.entries) {
     const externalId = text(entry.key, '原记录标识', 300);

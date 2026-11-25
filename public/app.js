@@ -275,6 +275,8 @@ function renderToday() {
         </div>` : ''}
         ${today.resume?.title && selected === 'morning' ? `<details class="details"><summary>续学 · ${html(today.resume.title)}</summary>
           ${today.resume.description ? `<p class="plan-description">${html(today.resume.description)}</p>` : ''}
+          ${today.resume.reading ? `<p lang="en" class="reading-passage">${html(today.resume.reading)}</p>` : ''}
+          ${today.resume.tasks?.length ? `<ol class="reading-questions">${today.resume.tasks.map((task) => `<li>${html(task)}</li>`).join('')}</ol>` : ''}
           ${today.resume.sourceLabel ? `<p class="small muted">${html(today.resume.sourceLabel)}</p>` : ''}</details>` : ''}
         <div class="plan-footer">
           ${today.started ? `<p class="muted">${html(progressLabel || '做完哪一项，就记哪一项。')}</p>${button('记本节练习', 'open-log', { period: selected }, 'button slim')}`
