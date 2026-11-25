@@ -1,0 +1,16 @@
+.DS_Store
+.env
+.env.*
+*.sqlite*
+*.log
+*.zip
+*.tar*
+*.m4a
+*.wav
+*.mp3
+*.mp4
+*.webm
+node_modules/
+data/
+private/
+coverage/

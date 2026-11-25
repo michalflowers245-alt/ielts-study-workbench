@@ -1,0 +1,18 @@
+{
+  "name": "ielts-study-workbench",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test",
+    "backup": "node scripts/backup.mjs",
+    "import-archive": "node scripts/import-archive.mjs",
+    "setup-mac": "node scripts/setup-mac.mjs",
+    "check-feedback": "node scripts/check-feedback.mjs"
+  },
+  "license": "MIT"
+}

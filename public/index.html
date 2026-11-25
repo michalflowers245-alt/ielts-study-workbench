@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f5ef">
+  <meta name="description" content="雅思 Academic 学习工作台">
+  <title>雅思学习工作台</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到内容</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#today" aria-label="雅思工作台，回到今天">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="brand-name">雅思工作台<small>IELTS ACADEMIC</small></span>
+      </a>
+      <nav class="navigation" aria-label="主导航">
+        <a href="#today" data-page="today" aria-current="page">今天</a>
+        <a href="#resources" data-page="resources">题库</a>
+        <a href="#progress" data-page="progress">进步</a>
+      </nav>
+      <p class="current-date" id="current-date"></p>
+    </div>
+  </header>
+
+  <main id="main" class="workspace" tabindex="-1">
+    <section class="page-content" id="page-content" aria-busy="true">
+      <div class="page-heading"><h1>今天的训练</h1></div>
+      <div class="empty-panel loading-panel" role="status">正在读取学习记录…</div>
+    </section>
+  </main>
+
+  <dialog class="dialog" id="dialog" aria-labelledby="dialog-title">
+    <div class="dialog-header">
+      <div>
+        <h2 id="dialog-title"></h2>
+        <p id="dialog-subtitle" hidden></p>
+      </div>
+      <button class="icon-button" id="close-dialog" type="button" aria-label="关闭">×</button>
+    </div>
+    <div class="dialog-body" id="dialog-body"></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" hidden></div>
+  <noscript><p class="noscript">工作台的上传和记录功能需要启用 JavaScript。</p></noscript>
+</body>
+</html>
