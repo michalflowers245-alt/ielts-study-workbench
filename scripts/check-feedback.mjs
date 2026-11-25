@@ -25,7 +25,7 @@ let failures = 0;
 for (const { source, check } of examples) {
   try {
     const findings = await analyzeTranscript({ segments: [{ id: 'sample', startMs: 0, endMs: 5000, text: source }] });
-    assert.ok(check(findings));
+    assert.ok(check(findings), JSON.stringify(findings));
     assert.ok(findings.every((item) => !item.confirmed && item.source === 'text'));
     console.log('PASS ' + source);
   } catch (error) {
